@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Prediksi Sentimen</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<style>
+		* {
+			font-family: "Poppins", sans-serif;
+		}
+
+		@media (max-width: 640px) {
+			textarea {
+				font-size: 1rem;
+			}
+
+			#result pre {
+				font-size: 0.95rem;
+			}
+		}
+
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.animate-fade-in {
+			animation: fade-in 0.6s ease;
+		}
+	</style>
+
+</head>
+<body
+	class="bg-gradient-to-br from-blue-100 via-white to-purple-100 min-h-screen flex items-center justify-center px-4 text-base">
+	<div class="bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-2xl transition-all duration-300">
+		<h1 class="text-2xl md:text-3xl font-extrabold mb-6 text-blue-700 text-center drop-shadow-sm">Prediksi Sentimen</h1>
+		<p class="text-gray-600 mb-6 text-center text-sm md:text-base">Masukkan ulasan Anda di bawah ini untuk memprediksi
+			sentimen secara otomatis.</p>
+		<textarea id="inputText" rows="5"
+			class="w-full p-4 border-2 border-blue-200 focus:border-blue-500 rounded-lg mb-4 resize-none transition-all duration-200 shadow-sm focus:shadow-md outline-none text-base"
+			placeholder="Tulis ulasan..."></textarea>
+		<button onclick="handlePredict()"
+			class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold text-base shadow hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center gap-2">
+			Prediksi
+		</button>
+		<div id="result" class="mt-8 hidden animate-fade-in">
+			<h2 class="text-lg md:text-xl font-bold text-purple-700 mb-2">Hasil:</h2>
+			<p class="text-base md:text-lg"><strong>Label:</strong> <span id="label" class="font-semibold"></span></p>
+			<pre class="bg-gray-50 border border-gray-200 p-3 mt-3 rounded-lg text-xs md:text-sm overflow-auto"
+				id="scoreJson"></pre>
+		</div>
+	</div>
+
+	<script src="model.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>
