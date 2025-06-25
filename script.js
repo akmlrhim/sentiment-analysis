@@ -27,6 +27,5 @@ function handlePredict() {
   const result = predict(text);
 
   document.getElementById("label").innerText = result.label;
-  document.getElementById("scoreJson").innerText = JSON.stringify(result.score, null, 2);
   document.getElementById("result").classList.remove("hidden");
 }
