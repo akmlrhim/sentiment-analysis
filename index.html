@@ -6,15 +6,9 @@
 	<title>Prediksi Sentimen</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-		rel="stylesheet">
-
 	<style>
 		* {
-			font-family: "Poppins", sans-serif;
+			font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
 		}
 
 		@media (max-width: 640px) {
@@ -50,9 +44,11 @@
 		<h1 class="text-2xl md:text-3xl font-extrabold mb-6 text-blue-700 text-center drop-shadow-sm">Prediksi Sentimen</h1>
 		<p class="text-gray-600 mb-6 text-center text-sm md:text-base">Masukkan ulasan Anda di bawah ini untuk memprediksi
 			sentimen secara otomatis.</p>
-		<textarea id="inputText" rows="5" required
-			class="w-full p-4 border-2 border-blue-200 focus:border-blue-500 rounded-lg mb-4 resize-none transition-all duration-200 shadow-sm focus:shadow-md outline-none text-base"
-			placeholder="Tulis ulasan..."></textarea>
+		<textarea id="inputText" rows="5"
+			class="w-full p-4 border-2 border-blue-200 focus:border-blue-500 rounded-lg mb-1 resize-none transition-all duration-200 shadow-sm focus:shadow-md outline-none text-base"
+			placeholder="Tulis ulasan..." required></textarea>
+		<p id="inputError" class="text-red-600 text-sm mb-3 hidden">Ulasan wajib diisi dan hanya boleh berupa teks.</p>
+
 		<button onclick="handlePredict()"
 			class="w-full bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold text-base shadow hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center justify-center gap-2">
 			Prediksi
@@ -67,7 +63,8 @@
 	</div>
 
 	<script src="model.js"></script>
-	<script src="app.js"></script>
+	<script src="script.js"></script>
+	<script src="validation.js"></script>
 
 </body>
 </html>
